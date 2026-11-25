@@ -1,0 +1,219 @@
+[
+  {
+    "id": "CLM-2401",
+    "created_at": "2026-11-12T09:14:00",
+    "input": {
+      "policy_number": "CP-1009",
+      "claimant_name": "Grace Kim",
+      "vehicle": "2023 Mazda CX-5",
+      "date_of_loss": "2026-11-10",
+      "reported_date": "2026-11-12",
+      "location": "Boulder, CO",
+      "loss_description": "Severe hail storm while parked at work. Dozens of dents across the roof, hood and trunk lid, and the sunroof glass is cracked.",
+      "claimed_amount": 3150,
+      "police_report": false,
+      "documents": ["hail_damage_photos.zip", "body_shop_estimate.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2402",
+    "created_at": "2026-11-13T11:02:00",
+    "input": {
+      "policy_number": "CP-1002",
+      "claimant_name": "Daniel Okafor",
+      "vehicle": "2021 Honda Accord",
+      "date_of_loss": "2026-11-12",
+      "reported_date": "2026-11-13",
+      "location": "I-80 near Emeryville, CA",
+      "loss_description": "Side-swipe collision while merging on I-80. Another vehicle drifted into my lane and scraped the driver side door and broke the side mirror.",
+      "claimed_amount": 2860,
+      "police_report": true,
+      "documents": ["police_report_88213.pdf", "repair_estimate.pdf", "photos.zip"]
+    }
+  },
+  {
+    "id": "CLM-2403",
+    "created_at": "2026-11-14T15:40:00",
+    "input": {
+      "policy_number": "CP-1006",
+      "claimant_name": "Marcus Bell",
+      "vehicle": "2018 Chevrolet Malibu",
+      "date_of_loss": "2026-11-11",
+      "reported_date": "2026-11-14",
+      "location": "Columbus, OH",
+      "loss_description": "Rear-end collision at a stop light. The car behind me failed to stop and damaged my rear bumper and trunk.",
+      "claimed_amount": 3900,
+      "police_report": true,
+      "documents": ["police_report.pdf", "estimate.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2404",
+    "created_at": "2026-11-15T10:21:00",
+    "input": {
+      "policy_number": "CP-1007",
+      "claimant_name": "Sofia Alvarez",
+      "vehicle": "2024 Hyundai Ioniq 5",
+      "date_of_loss": "2026-10-03",
+      "reported_date": "2026-10-05",
+      "location": "Austin, TX",
+      "loss_description": "Collided with a concrete barrier in a parking structure while turning, damaging the front bumper, headlight and right fender.",
+      "claimed_amount": 5200,
+      "police_report": false,
+      "documents": ["photos.zip", "dealer_estimate.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2405",
+    "created_at": "2026-11-16T13:55:00",
+    "input": {
+      "policy_number": "CP-1008",
+      "claimant_name": "Ethan Brooks",
+      "vehicle": "2017 Nissan Altima",
+      "date_of_loss": "2026-11-09",
+      "reported_date": "2026-11-15",
+      "location": "Phoenix, AZ",
+      "loss_description": "Backed into a pole. Bumper damage.",
+      "claimed_amount": 6900,
+      "police_report": false,
+      "documents": ["estimate.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2406",
+    "created_at": "2026-11-17T08:47:00",
+    "input": {
+      "policy_number": "CP-1005",
+      "claimant_name": "Hannah Weiss",
+      "vehicle": "2020 Toyota RAV4",
+      "date_of_loss": "2026-11-15",
+      "reported_date": "2026-11-16",
+      "location": "Portland, OR",
+      "loss_description": "Rear-end collision with another vehicle at an intersection. Front bumper, hood and radiator damaged after I could not stop in time.",
+      "claimed_amount": 7400,
+      "police_report": true,
+      "documents": ["police_report.pdf", "estimate.pdf", "photos.zip"]
+    }
+  },
+  {
+    "id": "CLM-2407",
+    "created_at": "2026-11-18T19:30:00",
+    "input": {
+      "policy_number": "CP-1010",
+      "claimant_name": "Omar Haddad",
+      "vehicle": "2022 Ford F-150",
+      "date_of_loss": "2026-11-17",
+      "reported_date": "2026-11-18",
+      "location": "Dallas, TX",
+      "loss_description": "I was delivering a DoorDash order when another car rear-ended my truck at a red light. Tailgate, rear bumper and hitch damaged.",
+      "claimed_amount": 4800,
+      "police_report": true,
+      "documents": ["police_report.pdf", "estimate.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2408",
+    "created_at": "2026-11-19T07:12:00",
+    "input": {
+      "policy_number": "CP-1001",
+      "claimant_name": "Maya Chen",
+      "vehicle": "2023 Tesla Model 3",
+      "date_of_loss": "2026-11-18",
+      "reported_date": "2026-11-19",
+      "location": "US-101, San Mateo, CA",
+      "loss_description": "A rock kicked up by a truck on the highway struck the windshield and left a long crack across the driver side glass.",
+      "claimed_amount": 890,
+      "police_report": false,
+      "documents": ["windshield_photo.jpg", "glass_shop_quote.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2409",
+    "created_at": "2026-11-20T21:05:00",
+    "input": {
+      "policy_number": "CP-1004",
+      "claimant_name": "Lucas Moreau",
+      "vehicle": "2019 Ford Mustang GT",
+      "date_of_loss": "2026-11-19",
+      "reported_date": "2026-11-20",
+      "location": "Highway 50, Placerville, CA",
+      "loss_description": "A deer jumped onto the road at dusk and struck the front of the car. Front bumper, grille and the left headlight are damaged.",
+      "claimed_amount": 5400,
+      "police_report": true,
+      "documents": ["photos.zip", "estimate.pdf", "police_report.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2410",
+    "created_at": "2026-11-21T10:44:00",
+    "input": {
+      "policy_number": "CP-1003",
+      "claimant_name": "Priya Raman",
+      "vehicle": "2022 Subaru Outback",
+      "date_of_loss": "2026-10-28",
+      "reported_date": "2026-11-21",
+      "location": "Seattle, WA",
+      "loss_description": "Car was stolen.",
+      "claimed_amount": 42000,
+      "police_report": false,
+      "documents": []
+    }
+  },
+  {
+    "id": "CLM-2411",
+    "created_at": "2026-11-22T14:18:00",
+    "input": {
+      "policy_number": "CP-1009",
+      "claimant_name": "Grace Kim",
+      "vehicle": "2023 Mazda CX-5",
+      "date_of_loss": "2026-11-21",
+      "reported_date": "2026-11-22",
+      "location": "Denver, CO",
+      "loss_description": "Engine failure on the highway. The dealer says the engine seized due to a mechanical breakdown and the transmission also needs replacement.",
+      "claimed_amount": 7800,
+      "police_report": false,
+      "documents": ["dealer_diagnosis.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2412",
+    "created_at": "2026-11-23T16:36:00",
+    "input": {
+      "text": "Hi, this is Hannah Weiss, policy CP-1005. On 2026-11-21 a large tree branch fell on my 2020 Toyota RAV4 during the windstorm, cracking the windshield and denting the roof. I reported it on 2026-11-22. The repair shop quoted $2,450."
+    }
+  },
+  {
+    "id": "CLM-2413",
+    "created_at": "2026-11-25T08:05:00",
+    "pending": true,
+    "input": {
+      "policy_number": "CP-1002",
+      "claimant_name": "Daniel Okafor",
+      "vehicle": "2021 Honda Accord",
+      "date_of_loss": "2026-11-24",
+      "reported_date": "2026-11-25",
+      "location": "Oakland, CA",
+      "loss_description": "Hit-and-run in a grocery store parking lot. Another vehicle struck the rear passenger quarter panel and drove off. Witness took a partial plate.",
+      "claimed_amount": 3600,
+      "police_report": true,
+      "documents": ["police_report_90114.pdf", "photos.zip", "estimate.pdf"]
+    }
+  },
+  {
+    "id": "CLM-2414",
+    "created_at": "2026-11-25T09:31:00",
+    "pending": true,
+    "input": {
+      "policy_number": "CP-1001",
+      "claimant_name": "Maya Chen",
+      "vehicle": "2023 Tesla Model 3",
+      "date_of_loss": "2026-11-23",
+      "reported_date": "2026-11-24",
+      "location": "Market St, San Francisco, CA",
+      "loss_description": "Rear-ended while stopped at a red light on Market St. The other driver admitted fault. Rear bumper, trunk lid and the left tail light are damaged.",
+      "claimed_amount": 4280,
+      "police_report": true,
+      "documents": ["police_report_77120.pdf", "tesla_body_shop_estimate.pdf", "photos.zip"]
+    }
+  }
+]
