@@ -130,10 +130,10 @@ function ClaimDetail() {
         )}
       </div>
 
-      <div className="grid gap-4 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[280px_minmax(0,1fr)_360px]">
-        <div className="order-3 lg:col-span-2 xl:order-1 xl:col-span-1">{record ? <ClaimSummary record={record} /> : <Skeleton className="h-96" />}</div>
+      <div className="grid grid-cols-1 gap-4 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[280px_minmax(0,1fr)_360px]">
+        <div className="order-3 min-w-0 lg:col-span-2 xl:order-1 xl:col-span-1">{record ? <ClaimSummary record={record} /> : <Skeleton className="h-96" />}</div>
 
-        <section className="order-1 h-fit rounded-lg border border-border bg-card xl:order-2">
+        <section className="order-1 h-fit min-w-0 rounded-lg border border-border bg-card xl:order-2">
           <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
             <h2 className="text-xs font-medium text-muted-foreground">Agent trace</h2>
             <span className="tnum font-mono text-[11px] text-muted-foreground">
@@ -152,7 +152,7 @@ function ClaimDetail() {
           </div>
         </section>
 
-        <div className="order-2 xl:order-3">
+        <div className="order-2 min-w-0 xl:order-3">
           {record?.result && !running ? <DecisionPanel record={record} onAction={act} busy={busy} /> : <DecisionSkeleton running={running} />}
         </div>
       </div>

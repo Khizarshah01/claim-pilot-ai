@@ -8,7 +8,7 @@ export function ClaimSummary({ record }: { record: ClaimRecord }) {
   const p = record.policy;
   const docs = c?.documents ?? record.input.documents ?? [];
   return (
-    <div className="grid items-start gap-3 lg:grid-cols-2 xl:grid-cols-1">
+    <div className="grid grid-cols-1 items-start gap-3 lg:grid-cols-2 xl:grid-cols-1">
       <section className="rounded-lg border border-border bg-card">
         <h3 className="border-b border-border px-4 py-2.5 text-xs font-medium text-muted-foreground">Claim</h3>
         {c ? (
