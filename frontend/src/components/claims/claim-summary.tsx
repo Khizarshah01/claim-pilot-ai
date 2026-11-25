@@ -1,6 +1,6 @@
 import { FileText, Paperclip } from "lucide-react";
 
-import { longDate, money2, relative } from "@/lib/format";
+import { longDate, money, money2, relative } from "@/lib/format";
 import type { ClaimRecord } from "@/lib/types";
 
 export function ClaimSummary({ record }: { record: ClaimRecord }) {
@@ -40,7 +40,7 @@ export function ClaimSummary({ record }: { record: ClaimRecord }) {
             <Row k="Term" v={`${longDate(p.start_date)} – ${longDate(p.end_date)}`} />
             <Row k="Premium" v={p.premium_paid ? "Paid" : <span className="text-danger">Past due</span>} />
             {Object.entries(p.coverages).map(([k, v]) => (
-              <Row key={k} k={k[0].toUpperCase() + k.slice(1)} v={<span className="tnum">{money2(v.deductible)} ded · {money2(v.limit)} limit</span>} />
+              <Row key={k} k={k[0].toUpperCase() + k.slice(1)} v={<span className="tnum">{money(v.deductible)} ded · {money(v.limit)} limit</span>} />
             ))}
             {!p.coverages.collision && <Row k="Collision" v={<span className="text-muted-foreground">Not carried</span>} />}
           </dl>
