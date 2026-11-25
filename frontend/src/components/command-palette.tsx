@@ -74,12 +74,12 @@ export function CommandPalette({ open, setOpen }: { open: boolean; setOpen: (o: 
               </div>
               <Command.List className="max-h-[360px] overflow-y-auto p-1.5">
                 <Command.Empty className="px-3 py-8 text-center text-sm text-muted-foreground">No matching claims.</Command.Empty>
-                <Command.Group heading="Navigate" className="cmdk-group">
+                <Command.Group heading="Navigate" className="[&_[cmdk-group-heading]]:px-2.5 [&_[cmdk-group-heading]]:pt-2 [&_[cmdk-group-heading]]:pb-1 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground">
                   <PaletteItem onSelect={() => go("/")} icon={<Inbox className="size-4" />} label="Claims inbox" />
                   <PaletteItem onSelect={() => go("/claims/new")} icon={<FilePlus2 className="size-4" />} label="New claim" />
                   <PaletteItem onSelect={() => go("/analytics")} icon={<BarChart3 className="size-4" />} label="Analytics" />
                 </Command.Group>
-                <Command.Group heading="Claims" className="cmdk-group">
+                <Command.Group heading="Claims" className="[&_[cmdk-group-heading]]:px-2.5 [&_[cmdk-group-heading]]:pt-2 [&_[cmdk-group-heading]]:pb-1 [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground">
                   {claims.map((c) => (
                     <Command.Item
                       key={c.id}
