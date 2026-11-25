@@ -1,0 +1,11 @@
+inspiration/
+node_modules/
+.env
+__pycache__/
+.venv/
+.next/
+dist/
+*.pyc
+.pytest_cache/
+.DS_Store
+backend/data/claims_store.json
