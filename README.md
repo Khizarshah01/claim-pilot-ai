@@ -16,6 +16,7 @@
 - [Screenshots](#screenshots)
 - [Demo walkthrough](#demo-walkthrough)
 - [Quick start](#quick-start-demo-mode-no-keys)
+- [Deploy for free](#deploy-for-free)
 - [API](#api)
 - [Project structure](#project-structure)
 - [Design decisions](#design-decisions)
@@ -215,8 +216,36 @@ Copy `backend/.env.example` to `backend/.env`, set `DEMO_MODE=false` and add `AN
 | `DEMO_STEP_DELAY_MS` | `650` | Per-step pacing while streaming in demo mode, so the timeline is watchable |
 | `ANTHROPIC_API_KEY` | — | Required for live mode |
 | `CLAIMPILOT_MODEL` | `claude-opus-5-5` | Model for live mode |
-| `CORS_ORIGINS` | `http://localhost:3000` | Allowed web origins (any localhost port is also accepted) |
-| `NEXT_PUBLIC_API_URL` | `http://localhost:8000` | API base URL for the frontend |
+| `CORS_ORIGINS` | `http://localhost:3000` | Comma-separated list of allowed web origins |
+| `CORS_ORIGIN_REGEX` | any `localhost` port | Extra allowed origins as a regex, e.g. `https://.*\.vercel\.app` |
+| `NEXT_PUBLIC_API_URL` | `http://localhost:8000` | API base URL for the frontend (read at build time) |
+
+## Deploy for free
+
+The API runs on **Render** and the web app on **Vercel**. Both have free plans and deploy from this GitHub repo, with no credit card.
+
+**1. API on Render**
+
+1. Sign in at [render.com](https://render.com) with GitHub.
+2. Choose **New**, then **Blueprint**, and select this repository. Render reads [`render.yaml`](render.yaml) and creates `claimpilot-api` on the free plan, in demo mode, with CORS open to `*.vercel.app`.
+3. Click **Apply** and wait for the deploy to finish (about 2 to 3 minutes).
+4. Copy the service URL, e.g. `https://claimpilot-api.onrender.com`, and check that `/health` returns `{"status":"ok"}`.
+
+**2. Web app on Vercel**
+
+1. Sign in at [vercel.com](https://vercel.com) with GitHub.
+2. Choose **Add New**, then **Project**, and import this repository.
+3. Set **Root Directory** to `frontend`. The framework is detected as Next.js.
+4. Under **Environment Variables**, add:
+   - `NEXT_PUBLIC_API_URL`: the Render URL from step 1, with no trailing slash
+   - `ENABLE_EXPERIMENTAL_COREPACK`: `1` (so Vercel uses the pnpm version pinned in `package.json`)
+5. Click **Deploy**. The site is live at `https://<project>.vercel.app`.
+
+**3. Optional: keep the API awake**
+
+Render's free plan sleeps after 15 minutes without traffic, and the next request takes 30 to 60 seconds while it wakes. The app shows a "Waking up the demo API" notice during that time. To avoid the wait, add a repository variable `API_URL` set to the Render URL (**Settings**, then **Secrets and variables**, **Actions**, **Variables**). The [`keep-warm`](.github/workflows/keep-warm.yml) workflow then pings `/health` every 10 minutes. One always-on service fits inside Render's 750 free hours per month.
+
+Claims are stored in memory, so a restart or redeploy resets the demo to its seeded claims.
 
 ## API
 
