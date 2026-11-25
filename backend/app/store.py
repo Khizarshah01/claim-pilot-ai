@@ -72,7 +72,6 @@ class ClaimStore:
 
     def evaluate_sync(self, record: ClaimRecord) -> ClaimRecord:
         claim, policy, result = run_sync(record.input, self.other_claim_dates(record))
-        # stamp trace times relative to claim creation so seeded history looks coherent
         return self.apply_result(record, claim, policy, result)
 
     # ---- analytics -----------------------------------------------------
@@ -110,6 +109,7 @@ def seed(store: ClaimStore) -> None:
         rec = store.create(ClaimInput.model_validate(item["input"]), item["id"], datetime.fromisoformat(item["created_at"]))
         if not item.get("pending"):
             store.evaluate_sync(rec)
+            rec.audit[-1].at = rec.created_at + timedelta(seconds=6)  # seeded history: decided at intake time
 
 
 STORE = ClaimStore()
