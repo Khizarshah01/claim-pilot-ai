@@ -1,0 +1,22 @@
+# Render Blueprint: deploys the ClaimPilot API on Render's free plan.
+# Dashboard: New > Blueprint > select this repo.
+services:
+  - type: web
+    name: claimpilot-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install uv && uv sync --frozen --no-dev
+    startCommand: uv run --frozen --no-dev uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: DEMO_MODE
+        value: "true"
+      - key: DEMO_STEP_DELAY_MS
+        value: "650"
+      # Public demo API: accept the Vercel production and preview URLs, plus localhost.
+      - key: CORS_ORIGIN_REGEX
+        value: https://.*\.vercel\.app|http://(localhost|127\.0\.0\.1)(:\d+)?
