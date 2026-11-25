@@ -8,6 +8,7 @@ import { Suspense } from "react";
 import { cn } from "@/lib/utils";
 import { CommandPalette, useCommandPalette } from "./command-palette";
 import { LogoMark } from "./logo";
+import { WakingHint } from "./waking-hint";
 
 const NAV = [
   { href: "/", label: "Inbox", icon: Inbox },
@@ -48,6 +49,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
       <main className="min-w-0 flex-1">{children}</main>
       <CommandPalette open={palette.open} setOpen={palette.setOpen} />
+      <WakingHint />
     </div>
   );
 }

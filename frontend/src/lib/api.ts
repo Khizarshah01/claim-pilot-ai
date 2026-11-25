@@ -2,12 +2,30 @@ import type { ClaimInput, ClaimRecord, Stats, TraceStep } from "./types";
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
+// In-flight request count, so the shell can show a hint while a sleeping free-tier API wakes up.
+let inFlight = 0;
+const listeners = new Set<(n: number) => void>();
+export function subscribeInFlight(fn: (n: number) => void) {
+  listeners.add(fn);
+  return () => void listeners.delete(fn);
+}
+const bump = (d: number) => {
+  inFlight += d;
+  listeners.forEach((fn) => fn(inFlight));
+};
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_URL}${path}`, {
-    ...init,
-    headers: { "content-type": "application/json", ...(init?.headers ?? {}) },
-    cache: "no-store",
-  });
+  bump(1);
+  let res: Response;
+  try {
+    res = await fetch(`${API_URL}${path}`, {
+      ...init,
+      headers: { "content-type": "application/json", ...(init?.headers ?? {}) },
+      cache: "no-store",
+    });
+  } finally {
+    bump(-1);
+  }
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
     throw new Error(typeof body.detail === "string" ? body.detail : `Request failed (${res.status})`);
