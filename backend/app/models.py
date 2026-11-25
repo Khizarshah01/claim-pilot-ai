@@ -123,6 +123,7 @@ class EvaluationResult(BaseModel):
     review_reasons: list[str] = Field(default_factory=list)
     policy_check: PolicyCheck | None = None
     citations: list[Citation] = Field(default_factory=list)
+    cited_clauses: list[str] = Field(default_factory=list)
     fraud_flags: list[FraudFlag] = Field(default_factory=list)
     settlement: Settlement | None = None
     trace: list[TraceStep] = Field(default_factory=list)

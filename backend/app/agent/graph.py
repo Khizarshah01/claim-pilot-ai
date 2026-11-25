@@ -248,6 +248,7 @@ def review_gate_node(state: ClaimState):
         review_reasons=reasons,
         policy_check=pc,
         citations=citations,
+        cited_clauses=cov.cited_clauses,
         fraud_flags=fa.flags,
         settlement=s,
         mode=mode,
