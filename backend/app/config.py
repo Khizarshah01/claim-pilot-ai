@@ -24,8 +24,10 @@ DEMO_MODE: bool = _flag("DEMO_MODE", True)
 DEMO_STEP_DELAY_MS: int = int(os.getenv("DEMO_STEP_DELAY_MS", "650"))
 LLM_MODEL: str = os.getenv("CLAIMPILOT_MODEL", "claude-opus-5-5")
 CORS_ORIGINS: list[str] = [
-    o.strip() for o in os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",") if o.strip()
+    o.strip().rstrip("/") for o in os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",") if o.strip()
 ]
+# Extra origins matched by regex: any localhost port, plus e.g. Vercel preview URLs in production.
+CORS_ORIGIN_REGEX: str = os.getenv("CORS_ORIGIN_REGEX", r"http://(localhost|127\.0\.0\.1)(:\d+)?")
 
 # Decision thresholds
 RISK_REVIEW_THRESHOLD = 60
