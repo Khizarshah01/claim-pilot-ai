@@ -1,8 +1,8 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
 
 import { PageHeader } from "@/components/app-shell";
 import { Button } from "@/components/ui/button";
@@ -62,13 +62,24 @@ const TEXT_SAMPLE =
   "Hi, this is Grace Kim, policy CP-1009. On 2026-11-24 a deer ran out on Highway 36 near Boulder and hit my 2023 Mazda CX-5. The front bumper, grille and right headlight are smashed. I filed a police report on 2026-11-24. The body shop quoted $4,950.";
 
 export default function NewClaimPage() {
+  return (
+    <Suspense>
+      <NewClaim />
+    </Suspense>
+  );
+}
+
+function NewClaim() {
   const router = useRouter();
+  // ?sample=approve|deny|fraud preloads a sample, handy for demos
+  const sampleKey = useSearchParams().get("sample");
+  const preset = SAMPLES.find((s) => s.key === sampleKey);
   const [mode, setMode] = useState<"form" | "text">("form");
-  const [form, setForm] = useState<FormState>(EMPTY);
+  const [form, setForm] = useState<FormState>(preset?.data ?? EMPTY);
   const [text, setText] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>(preset?.key ?? null);
 
   const set = <K extends keyof FormState>(k: K, v: FormState[K]) => setForm((f) => ({ ...f, [k]: v }));
 
